@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episode 1 with You Boo &#9829</title>
+    <style>
+        /* Body layout and center everything */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffff;
+        }
+        .line-1{
+            position: absolute;
+            top: 80px;  
+            left: 20px;
+            width: 24em;
+            margin: 0;
+            border-right: 2px solid rgba(255,255,255,.75);
+            font-size: 3em;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateY(-50%);
+            text-decoration-color: #000000;
+                
+        }
+       
+            /* Animation */
+        .anim-typewriter{
+            animation: typewriter 4s steps(7) 1s infinite normal both,
+            blinkTextCursor 500ms steps(7) infinite normal;
+         }
+        @keyframes typewriter{
+            10%{width: 0;}
+            50%{width: 10em;}
+            75%{width: 24em;}
+            100%{width: 0;}
+                }
+        @keyframes blinkTextCursor{
+            from{border-right-color: rgba(255,255,255,.75);}
+            to{border-right-color: transparent;}
+        }
+                    /* Box container for media */
+        .media-box {
+            background-color: #000000;
+            border: 10px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden; /* Hide overflow if the media is larger than the box */
+        }
+
+        /* Navigation arrows */
+        .arrow-left, .arrow-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        /* Media (Image/Video) Styling */
+        .media-container {
+            display: none;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Make the first image/video visible by default */
+        .media-container.active {
+            display: block;
+        }
+        
+    </style>
+</head>
+<body>
+
+<a href="index1.html">
+    <h1 class="heading"><p class="line-1 anim-typewriter">Go back to Memories</p></h1>
+</a>
+    <!-- Media Box (Container for Image/Video) -->
+    <div class="media-box">
+        <!-- Arrow for previous media -->
+        <button class="arrow-left" onclick="changeMedia(-1)">&#8592;</button>
+
+        <!-- Media items (Images/Videos) -->
+        <div class="media-container active">
+            <img src="eps1_1.jpeg" alt="Image 1">
+        </div>
+        <div class="media-container">
+            <img src="1-2.jpg" alt="Image 2">
+        </div>
+        <div class="media-container ">
+            <img src="1-3.jpeg" alt="Image 2">
+        </div>
+        <div class="media-container">
+            <img src="1-4.jpeg" alt="Image 2">
+        </div>
+        <div class="media-container ">
+            <img src="1-5.jpeg" alt="Image 2">
+        </div>
+        
+        <!-- Arrow for next media -->
+        <button class="arrow-right" onclick="changeMedia(1)">&#8594;</button>
+    </div>
+
+    <script>
+        let currentMediaIndex = 0;
+        const mediaItems = document.querySelectorAll('.media-container');
+
+        // Function to change the media (image/video)
+        function changeMedia(direction) {
+            // Hide current media
+            mediaItems[currentMediaIndex].classList.remove('active');
+
+            // Update current media index
+            currentMediaIndex += direction;
+
+            // If we're at the beginning or end, loop around
+            if (currentMediaIndex < 0) {
+                currentMediaIndex = mediaItems.length - 1; // Go to last item
+            } else if (currentMediaIndex >= mediaItems.length) {
+                currentMediaIndex = 0; // Go to first item
+            }
+
+            // Show new media
+            mediaItems[currentMediaIndex].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

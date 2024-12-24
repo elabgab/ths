@@ -1,0 +1,71 @@
+*{
+    box-sizing: content-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 100vh;
+    background-color: #ffffff;
+
+}
+.memories{
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+
+}
+.heading{
+    text-align: center;
+    font-size: 4rem;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 500px;
+    margin-bottom: 3rem;
+
+}
+
+
+.line-1{
+    position: absolute;
+    top: 80px;  
+    left: 20px;
+    width: 24em;
+    margin: 0;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 3em;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+            animation: typewriter 4s steps(7) 1s infinite normal both,
+             blinkTextCursor 500ms steps(7) infinite normal;
+}
+@keyframes typewriter{
+  10%{width: 0;}
+  50%{width: 10em;}
+  75%{width: 24em;}
+  100%{width: 0;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+    background-color: #e97e7e;
+}
+.eps1, .eps2, .eps3{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+.episode1:hover, .episode2:hover, .episode3:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, o.2);
+}
